@@ -11,7 +11,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Attributes\On;
 
-new #[Layout('components.layouts.app')] class extends Component
+new #[Layout('layouts.app')] class extends Component
 {
     use WithPagination;
 
@@ -139,19 +139,17 @@ new #[Layout('components.layouts.app')] class extends Component
         </div>
     @endif
 
-    <div
-        class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-none p-4 sm:p-6 mb-6">
+
+    <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-md p-3 mb-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-                <label for="searchName" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Pesquisar por Nome</label>
                 <input type="text" wire:model.live.debounce.300ms="searchName" id="searchName"
                        placeholder="Nome do departamento..."
-                       class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
+                       class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
             </div>
             <div>
-                <label for="filterManagerId" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Filtrar por Gestor</label>
                 <select wire:model.live="filterManagerId" id="filterManagerId"
-                        class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
+                        class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
                     <option value="">Todos os Gestores</option>
                     @foreach ($allManagers as $manager)
                         <option value="{{ $manager['id'] }}">{{ $manager['name'] }}</option>
@@ -162,7 +160,7 @@ new #[Layout('components.layouts.app')] class extends Component
     </div>
 
     <div
-        class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-none overflow-x-auto">
+        class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-none overflow-x-auto">
         <table class="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700">
             <thead class="bg-neutral-50 dark:bg-neutral-700">
             <tr>

@@ -8,7 +8,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Attributes\On;
 
-new #[Layout('components.layouts.app')] class extends Component
+new #[Layout('layouts.app')] class extends Component
 {
     use WithPagination;
 
@@ -107,7 +107,7 @@ new #[Layout('components.layouts.app')] class extends Component
         </div>
     @endif
 
-    <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-md p-3 mb-6">
+    <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-md p-3 mb-6">
         <label for="searchName" class="sr-only">Pesquisar por Nome</label>
         <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -115,11 +115,11 @@ new #[Layout('components.layouts.app')] class extends Component
             </div>
             <input type="text" wire:model.live.debounce.300ms="searchName" id="searchName"
                    placeholder="Pesquisar por nome de veículo..."
-                   class="block w-full pl-10 pr-3 py-2 border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md placeholder-neutral-400 dark:placeholder-neutral-500">
+                   class="block w-full pl-10 pr-3 py-2 border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md placeholder-neutral-400 dark:placeholder-neutral-500">
         </div>
     </div>
 
-    <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-md overflow-hidden">
+    <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-md overflow-hidden">
         <table class="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700">
             <thead class="bg-neutral-50 dark:bg-neutral-700">
             <tr>

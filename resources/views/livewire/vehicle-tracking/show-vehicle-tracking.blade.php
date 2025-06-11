@@ -8,7 +8,7 @@ use Livewire\Attributes\Url; // Para manter o vehicleId na URL (se um dia for ú
 use Livewire\Attributes\On; // Para os listeners de eventos Livewire
 use Livewire\Attributes\Computed; // Para propriedades computadas, se as usar futuramente
 
-new #[Layout('components.layouts.app')] class extends Component
+new #[Layout('layouts.app')] class extends Component
 {
     // Propriedade para o ID do veículo, que pode vir da rota, mas não será usada para buscar dados reais agora
     #[Url(as: 'v', history: true, keep: true)]
@@ -150,11 +150,11 @@ new #[Layout('components.layouts.app')] class extends Component
     @endif
 
     {{-- Bloco do Seletor de Veículos (Populando com IDs simulados) --}}
-    <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-md p-3 mb-6">
+    <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-md p-3 mb-6">
         <label for="selectVehicle" class="sr-only">Selecionar Veículo</label>
         <div class="relative">
             <select wire:model.live="vehicleId" id="selectVehicle"
-                    class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none">
+                    class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none">
                 <option value="default">Veículo Padrão (SP)</option>
                 <option value="1">Veículo 1 (RJ)</option>
                 <option value="26">Veículo 26 (SP)</option>
@@ -166,7 +166,7 @@ new #[Layout('components.layouts.app')] class extends Component
     </div>
 
     {{-- Contêiner do Mapa e Detalhes da Localização --}}
-    <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-md p-3 mb-6">
+    <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-md p-3 mb-6">
         <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Localização Atual</h2>
         <div id="map" style="height: 500px; width: 100%; border-radius: 0.375rem;"></div>
 

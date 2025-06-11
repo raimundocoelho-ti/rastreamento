@@ -5,7 +5,7 @@ use Livewire\Volt\Component;
 use Livewire\Attributes\Layout;
 // Usaremos o método rules() para validação aqui
 
-new #[Layout('components.layouts.app')] class extends Component
+new #[Layout('layouts.app')] class extends Component
 {
     public VehicleType $vehicleType; // Injeção do modelo
 
@@ -75,7 +75,7 @@ new #[Layout('components.layouts.app')] class extends Component
 
 
     <form wire:submit="updateVehicleType">
-        <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
+        <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
 
             @include('livewire.vehicle-type._form_vehicle_type')
 
@@ -84,7 +84,7 @@ new #[Layout('components.layouts.app')] class extends Component
 
                     <a href="{{ route('vehicle-types.index') }}"
                        wire:navigate
-                       class="bg-neutral-200 hover:bg-neutral-300 mr-2 text-ba text-neutral-900 px-3 py-1.5 rounded-none shadow-sm inline-flex items-center">
+                       class="bg-neutral-200 hover:bg-neutral-300 mr-2 text-ba text-neutral-900 px-3 py-1.5 rounded-none shadow-xs inline-flex items-center">
                         <span class="icon-[tabler--x] w-4 h-4 mr-2"></span>
                         Cancelar
                     </a>
@@ -92,7 +92,7 @@ new #[Layout('components.layouts.app')] class extends Component
                     <button type="submit"
                             wire:loading.attr="disabled"
                             wire:target="updateVehicleType"
-                            class="bg-neutral-900 hover:bg-neutral-700 text-white text-sm font-medium py-1.5 px-3 rounded-none shadow-sm disabled:opacity-75 inline-flex items-center">
+                            class="bg-neutral-900 hover:bg-neutral-700 text-white text-sm font-medium py-1.5 px-3 rounded-none shadow-xs disabled:opacity-75 inline-flex items-center">
                         <span wire:loading wire:target="updateVehicleType" class="icon-[tabler--loader-2] animate-spin w-4 h-4 mr-2"></span>
                         <span wire:loading wire:target="updateVehicleType">A salvar...</span>
                         <span wire:loading.remove wire:target="updateVehicleType">

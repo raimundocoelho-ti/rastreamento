@@ -8,7 +8,7 @@
                 <div>
                     <label for="vehicle_type_id" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Tipo <span class="text-red-500">*</span></label>
                     <select wire:model.live="vehicle_type_id" id="vehicle_type_id"
-                            class="mt-1 block w-full border {{ $errors->has('vehicle_type_id') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
+                            class="mt-1 block w-full border {{ $errors->has('vehicle_type_id') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
                         <option value="">Selecione...</option>
                         @if(isset($vehicleTypes))
                             @foreach ($vehicleTypes as $type)
@@ -21,13 +21,13 @@
                 <div>
                     <label for="license_plate" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Placa</label>
                     <input type="text" wire:model.defer="license_plate" id="license_plate" placeholder="AAA-0A00"
-                           class="mt-1 block w-full border {{ $errors->has('license_plate') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
+                           class="mt-1 block w-full border {{ $errors->has('license_plate') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
                     @error('license_plate') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                 </div>
                 <div>
                     <label for="status" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Status <span class="text-red-500">*</span></label>
                     <select wire:model.defer="status" id="status"
-                            class="mt-1 block w-full border {{ $errors->has('status') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
+                            class="mt-1 block w-full border {{ $errors->has('status') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
                         <option value="Ativo">Ativo</option>
                         <option value="Em Manutenção">Em Manutenção</option>
                         <option value="Inativo">Inativo</option>
@@ -38,7 +38,7 @@
                 <div>
                     <label for="selected_brand_id" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Marca <span class="text-red-500">*</span></label>
                     <select wire:model.live="selected_brand_id" id="selected_brand_id"
-                            class="mt-1 block w-full border {{ $errors->has('selected_brand_id') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
+                            class="mt-1 block w-full border {{ $errors->has('selected_brand_id') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
                         <option value="">Selecione a marca...</option>
                         @if(isset($allBrands))
                             @foreach ($allBrands as $brand)
@@ -51,7 +51,7 @@
                 <div>
                     <label for="vehicle_model_id" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Modelo <span class="text-red-500">*</span></label>
                     <select wire:model.defer="vehicle_model_id" id="vehicle_model_id"
-                            class="mt-1 block w-full border {{ $errors->has('vehicle_model_id') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none"
+                            class="mt-1 block w-full border {{ $errors->has('vehicle_model_id') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none"
                         {{ !isset($vehicleModelsForSelectedBrand) || $vehicleModelsForSelectedBrand->isEmpty() ? 'disabled' : '' }}>
                         <option value="">Selecione o modelo...</option>
                         @if(isset($vehicleModelsForSelectedBrand))
@@ -65,13 +65,13 @@
                 <div>
                     <label for="color" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Cor</label>
                     <input type="text" wire:model.defer="color" id="color"
-                           class="mt-1 block w-full border {{ $errors->has('color') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
+                           class="mt-1 block w-full border {{ $errors->has('color') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
                     @error('color') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                 </div>
                 <div>
                     <label for="number_of_seats" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Nº de Lugares (c/ motorista)</label>
                     <input type="number" wire:model.defer="number_of_seats" id="number_of_seats" min="1"
-                           class="mt-1 block w-full border {{ $errors->has('number_of_seats') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
+                           class="mt-1 block w-full border {{ $errors->has('number_of_seats') ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600' }} bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
                     @error('number_of_seats') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                 </div>
             </div>
@@ -84,7 +84,7 @@
             <div>
                 <label for="notes" class="sr-only">Observações</label>
                 <textarea wire:model.defer="notes" id="notes" rows="4"
-                          class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500"></textarea>
+                          class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500"></textarea>
                 @error('notes') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
             </div>
         </section>
@@ -104,7 +104,7 @@
                     @endif
                 </div>
                 <div class="flex flex-col items-center w-full">
-                    <label for="vehicle-image-upload-button" class="cursor-pointer inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-none shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-neutral-800">
+                    <label for="vehicle-image-upload-button" class="cursor-pointer inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-none shadow-xs text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-neutral-800">
                         <span class="icon-[tabler--upload] w-4 h-4 mr-2"></span>
                         {{ (isset($existingImageUrl) && $existingImageUrl) || ($image && method_exists($image, 'temporaryUrl')) ? 'Alterar Imagem' : 'Carregar Imagem' }}
                     </label>

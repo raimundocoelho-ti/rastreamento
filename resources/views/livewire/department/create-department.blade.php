@@ -13,7 +13,7 @@ use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 
-new #[Layout('components.layouts.app')] class extends Component {
+new #[Layout('layouts.app')] class extends Component {
     use WithFileUploads;
 
     #[Validate('required|string|max:255|unique:departments,name')]
@@ -112,7 +112,7 @@ new #[Layout('components.layouts.app')] class extends Component {
 
     <form wire:submit="saveDepartment">
         <div
-            class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
+            class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
             {{-- Passar a variável $managers para o formulário parcial --}}
             {{-- As outras propriedades públicas ($name, $description, $image, $existingImageUrl, $isEditMode)
                  são automaticamente acessíveis dentro do @include se o form as utilizar. --}}
@@ -127,14 +127,14 @@ new #[Layout('components.layouts.app')] class extends Component {
                 <div class="flex justify-end">
                     <a href="{{ route('departments.index') }}"
                        wire:navigate
-                       class="bg-neutral-200 hover:bg-neutral-300 mr-2 text-ba text-neutral-900 px-3 py-1.5 rounded-none shadow-sm inline-flex items-center">
+                       class="bg-neutral-200 hover:bg-neutral-300 mr-2 text-ba text-neutral-900 px-3 py-1.5 rounded-none shadow-xs inline-flex items-center">
                         <span class="icon-[tabler--x] w-4 h-4 mr-2"></span>
                         Cancelar
                     </a>
                     <button type="submit"
                             wire:loading.attr="disabled"
                             wire:target="saveDepartment"
-                            class="bg-neutral-900 hover:bg-neutral-700 text-white font-medium text-sm py-1.5 px-3 rounded-none shadow-sm disabled:opacity-75 inline-flex items-center">
+                            class="bg-neutral-900 hover:bg-neutral-700 text-white font-medium text-sm py-1.5 px-3 rounded-none shadow-xs disabled:opacity-75 inline-flex items-center">
                         <span wire:loading wire:target="saveDepartment"
                               class="icon-[tabler--loader-2] animate-spin w-4 h-4 mr-2"></span>
                         <span wire:loading wire:target="saveDepartment">A salvar...</span>

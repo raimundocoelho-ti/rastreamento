@@ -1,7 +1,7 @@
 <div>
     <div class="flex flex-col lg:flex-row gap-x-8 gap-y-6">
 
-        <div class="flex-grow lg:w-2/3 space-y-8">
+        <div class="grow lg:w-2/3 space-y-8">
 
             <section>
                 <h3 class="text-lg font-semibold leading-tight text-neutral-800 dark:text-neutral-200 mb-4 border-b border-neutral-200 dark:border-neutral-700 pb-2">
@@ -12,7 +12,7 @@
                     <div>
                         <label for="name" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Nome do Departamento</label>
                         <input type="text" wire:model.defer="name" id="name"
-                               class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
+                               class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500">
                         @error('name') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                     </div>
 
@@ -20,7 +20,7 @@
                     <div>
                         <label for="manager_id" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Gestor Responsável</label>
                         <select wire:model.defer="manager_id" id="manager_id"
-                                class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
+                                class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 appearance-none">
                             <option value="">Nenhum gestor selecionado</option>
                             @if(isset($managers) && count($managers) > 0)
                                 @foreach ($managers as $manager)
@@ -37,7 +37,7 @@
                     <div>
                         <label for="description" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Descrição</label>
                         <textarea wire:model.defer="description" id="description" rows="4"
-                                  class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500"></textarea>
+                                  class="mt-1 block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-none p-2 placeholder-neutral-400 dark:placeholder-neutral-500"></textarea>
                         @error('description') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     {{-- Input de Ficheiro Estilizado --}}
                     <div class="flex flex-col items-center w-full">
                         <label for="department-image-upload-button"
-                               class="cursor-pointer inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-none shadow-sm text-white bg-neutral-900 hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 dark:focus:ring-offset-neutral-800">
+                               class="cursor-pointer inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-none shadow-xs text-white bg-neutral-900 hover:bg-neutral-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 dark:focus:ring-offset-neutral-800">
                             <span class="icon-[tabler--upload] w-4 h-4 mr-2"></span>
                             {{ ($existingImageUrl || ($image && method_exists($image, 'temporaryUrl'))) ? 'Alterar Imagem' : 'Carregar Imagem' }}
                         </label>

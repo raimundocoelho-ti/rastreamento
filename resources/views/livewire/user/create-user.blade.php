@@ -9,7 +9,7 @@ use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
 
-new #[Layout('components.layouts.app')] class extends Component
+new #[Layout('layouts.app')] class extends Component
 {
     use WithFileUploads;
 
@@ -75,7 +75,7 @@ new #[Layout('components.layouts.app')] class extends Component
     <x-header-module :items="$headerItems" />
 
     <form wire:submit="saveUser">
-        <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
+        <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
             @include('livewire.user._form_user', [
                 'allRoles' => $allRoles,
                 'isEditMode' => $isEditMode,
@@ -85,7 +85,7 @@ new #[Layout('components.layouts.app')] class extends Component
                 <div class="flex justify-end">
                     <a href="{{ route('users.index') }}"
                        wire:navigate
-                       class="bg-neutral-200 hover:bg-neutral-300 mr-2 text-ba text-neutral-900 px-3 py-1.5 rounded-none shadow-sm inline-flex items-center">
+                       class="bg-neutral-200 hover:bg-neutral-300 mr-2 text-ba text-neutral-900 px-3 py-1.5 rounded-none shadow-xs inline-flex items-center">
                         <span class="icon-[tabler--x] w-4 h-4 mr-2"></span>
                         Cancelar
                     </a>

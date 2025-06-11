@@ -12,7 +12,7 @@ use Livewire\Attributes\Url;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Computed;
 
-new #[Layout('components.layouts.app')] class extends Component
+new #[Layout('layouts.app')] class extends Component
 {
     use WithPagination;
 
@@ -152,7 +152,7 @@ new #[Layout('components.layouts.app')] class extends Component
     @endif
 
     {{-- Bloco de Filtros de Pesquisa --}}
-    <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-md p-3 mb-6">
+    <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-md p-3 mb-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
             {{-- Campo de Pesquisa Geral --}}
             <div class="lg:col-span-1 xl:col-span-1">
@@ -163,7 +163,7 @@ new #[Layout('components.layouts.app')] class extends Component
                     </div>
                     <input type="text" wire:model.live.debounce.300ms="searchTerm" id="searchTerm"
                            placeholder="Placa, Marca, Modelo..."
-                           class="block w-full pl-10 pr-3 py-2 border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md placeholder-neutral-400 dark:placeholder-neutral-500">
+                           class="block w-full pl-10 pr-3 py-2 border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md placeholder-neutral-400 dark:placeholder-neutral-500">
                 </div>
             </div>
             {{-- Filtro de Marca --}}
@@ -171,7 +171,7 @@ new #[Layout('components.layouts.app')] class extends Component
                 <label for="filterBrandId" class="sr-only">Filtrar por Marca</label>
                 <div class="relative">
                     <select wire:model.live="filterBrandId" id="filterBrandId"
-                            class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none">
+                            class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none">
                         <option value="">Todas as Marcas</option>
                         @foreach ($this->allBrands as $brand)
                             <option value="{{ $brand->id }}">{{ $brand->name }}</option>
@@ -187,7 +187,7 @@ new #[Layout('components.layouts.app')] class extends Component
                 <label for="filterVehicleModelId" class="sr-only">Filtrar por Modelo</label>
                 <div class="relative">
                     <select wire:model.live="filterVehicleModelId" id="filterVehicleModelId"
-                            class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none"
+                            class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none"
                         {{ $this->allVehicleModelsForFilter->isEmpty() && !$filterBrandId ? 'disabled' : '' }}>
                         <option value="">Todos os Modelos</option>
                         @if($filterBrandId && $this->allVehicleModelsForFilter->isNotEmpty())
@@ -208,7 +208,7 @@ new #[Layout('components.layouts.app')] class extends Component
                 <label for="filterVehicleTypeId" class="sr-only">Filtrar por Tipo de Veículo</label>
                 <div class="relative">
                     <select wire:model.live="filterVehicleTypeId" id="filterVehicleTypeId"
-                            class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none">
+                            class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none">
                         <option value="">Todos os Tipos</option>
                         @foreach ($this->allVehicleTypes as $type)
                             <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -224,7 +224,7 @@ new #[Layout('components.layouts.app')] class extends Component
                 <label for="filterStatus" class="sr-only">Filtrar por Status</label>
                 <div class="relative">
                     <select wire:model.live="filterStatus" id="filterStatus"
-                            class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none">
+                            class="block w-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-200 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm rounded-md py-2 pl-3 pr-8 appearance-none">
                         <option value="">Todos os Status</option>
                         @foreach ($this->allStatuses as $statusValue)
                             <option value="{{ $statusValue }}">{{ $statusValue }}</option>
@@ -239,7 +239,7 @@ new #[Layout('components.layouts.app')] class extends Component
     </div>
 
     {{-- Tabela de Veículos Simplificada para Localização --}}
-    <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-md overflow-hidden">
+    <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-md overflow-hidden">
         <table class="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700">
             <thead class="bg-neutral-50 dark:bg-neutral-700">
             <tr>
@@ -254,7 +254,7 @@ new #[Layout('components.layouts.app')] class extends Component
                 <tr class="hover:bg-neutral-50 dark:hover:bg-neutral-700">
                     <td class="px-4 py-2 whitespace-nowrap">
                         @if($vehicle->license_plate)
-                            <div class="inline-flex items-center justify-center h-7 px-2 border border-neutral-400 dark:border-neutral-600 shadow-sm rounded-sm bg-neutral-100 dark:bg-neutral-700 flex-shrink-0">
+                            <div class="inline-flex items-center justify-center h-7 px-2 border border-neutral-400 dark:border-neutral-600 shadow-xs rounded-xs bg-neutral-100 dark:bg-neutral-700 shrink-0">
                                 <span class="text-sm font-semibold text-neutral-800 dark:text-neutral-100 tracking-wider">{{ $vehicle->license_plate }}</span>
                             </div>
                         @else

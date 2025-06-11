@@ -125,7 +125,7 @@ new class extends Component
                     </div>
                 </div>
                 <button wire:click="closeModal" type="button"
-                        class="ml-4 p-1 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 focus:outline-none">
+                        class="ml-4 p-1 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 focus:outline-hidden">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                          aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
@@ -135,13 +135,13 @@ new class extends Component
         </div>
         <div class="bg-neutral-50 dark:bg-neutral-700 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse rounded-b-none">
             <button wire:click="confirm" type="button"
-                    class="w-full inline-flex justify-center rounded-none border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm disabled:opacity-50"
+                    class="w-full inline-flex justify-center rounded-none border border-transparent shadow-xs px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm disabled:opacity-50"
                     wire:loading.attr="disabled" wire:target="confirm">
                 <span wire:loading.remove wire:target="confirm">{{ $confirmButtonText }}</span>
                 <span wire:loading wire:target="confirm">Aguarde...</span>
             </button>
             <button wire:click="closeModal" type="button"
-                    class="mt-3 w-full inline-flex justify-center rounded-none border border-neutral-300 dark:border-neutral-500 shadow-sm px-4 py-2 bg-white dark:bg-neutral-600 text-base font-medium text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 sm:mt-0 sm:w-auto sm:text-sm"
+                    class="mt-3 w-full inline-flex justify-center rounded-none border border-neutral-300 dark:border-neutral-500 shadow-xs px-4 py-2 bg-white dark:bg-neutral-600 text-base font-medium text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-500 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 sm:mt-0 sm:w-auto sm:text-sm"
                     wire:loading.attr="disabled" wire:target="confirm">
                 {{ $cancelButtonText }}
             </button>

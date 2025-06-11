@@ -5,7 +5,7 @@ use App\Models\VehicleBrand;
 use Livewire\Volt\Component;
 use Livewire\Attributes\Layout;
 
-new #[Layout('components.layouts.app')] class extends Component
+new #[Layout('layouts.app')] class extends Component
 {
     public VehicleModel $vehicleModel;
 
@@ -60,7 +60,7 @@ new #[Layout('components.layouts.app')] class extends Component
     <x-header-module :items="$headerItems" />
 
     <form wire:submit="updateVehicleModel">
-        <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
+        <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
             {{-- Passar a variável $brands para o formulário parcial --}}
             @include('livewire.vehicle-model._form_model', ['brands' => $brands])
 
@@ -68,14 +68,14 @@ new #[Layout('components.layouts.app')] class extends Component
                 <div class="flex justify-end">
                           <a href="{{ route('vehicle-models.index') }}"
                        wire:navigate
-                       class="bg-neutral-200 hover:bg-neutral-300 mr-2 text-ba text-neutral-900 px-3 py-1.5 rounded-none shadow-sm inline-flex items-center">
+                       class="bg-neutral-200 hover:bg-neutral-300 mr-2 text-ba text-neutral-900 px-3 py-1.5 rounded-none shadow-xs inline-flex items-center">
                         <span class="icon-[tabler--x] w-4 h-4 mr-2"></span>
                         Cancelar
                     </a>
                     <button type="submit"
                             wire:loading.attr="disabled"
                             wire:target="updateVehicleModel"
-                            class="bg-neutral-900 hover:bg-neutral-700 text-white font-medium text-sm py-1.5 px-3 rounded-none shadow-sm disabled:opacity-75 inline-flex items-center">
+                            class="bg-neutral-900 hover:bg-neutral-700 text-white font-medium text-sm py-1.5 px-3 rounded-none shadow-xs disabled:opacity-75 inline-flex items-center">
                         <span wire:loading wire:target="updateVehicleModel"
                               class="icon-[tabler--loader-2] animate-spin w-4 h-4 mr-2"></span>
                         <span wire:loading wire:target="updateVehicleModel">A salvar...</span>

@@ -1,25 +1,75 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <span class="icon-[tabler--layout-dashboard] text-lg mr-2"></span>
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                        <span class="icon-[tabler--users] text-lg mr-2"></span>
+                        {{ __('Usuários') }}
+                    </x-nav-link>
+
+                    <x-nav-link href="{{ route('departments.index') }}" :active="request()->routeIs('departments.index')">
+                        <span class="icon-[tabler--building-warehouse] text-lg mr-2"></span>
+                        {{ __('Departamentos') }}
+                    </x-nav-link>
+
+                    <div class="hidden sm:flex sm:items-center sm:relative">
+                        <x-dropdown align="left" width="48">
+                            <x-slot name="trigger">
+                                <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                    <span class="icon-[tabler--truck] text-lg mr-2"></span>
+                                    {{ __('Veículos') }}
+                                    <svg class="ms-2 -me-0.5 size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Gerenciar Veículos') }}
+                                </div>
+                                <x-dropdown-link href="{{ route('vehicle-types.index') }}">
+                                    <span class="icon-[tabler--category-2] text-lg mr-2"></span>
+                                    {{ __('Tipos de Veículos') }}
+                                </x-dropdown-link>
+                                <x-dropdown-link href="{{ route('brands.index') }}">
+                                    <span class="icon-[tabler--trademark] text-lg mr-2"></span>
+                                    {{ __('Marcas de Veículos') }}
+                                </x-dropdown-link>
+                                <x-dropdown-link href="{{ route('vehicle-models.index') }}">
+                                    <span class="icon-[tabler--car-crane] text-lg mr-2"></span>
+                                    {{ __('Modelos de Veículos') }}
+                                </x-dropdown-link>
+                                <div class="border-t border-gray-200"></div>
+                                <x-dropdown-link href="{{ route('vehicles.index') }}">
+                                    <span class="icon-[tabler--car] text-lg mr-2"></span>
+                                    {{ __('Listar Veículos') }}
+                                </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
+
+                    <x-nav-link href="{{ route('locations.index') }}" :active="request()->routeIs('locations.index')">
+                        <span class="icon-[tabler--map-pin] text-lg mr-2"></span>
+                        {{ __('Localizar Veículo') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ms-3 relative">
                         <x-dropdown align="right" width="60">
@@ -37,12 +87,10 @@
 
                             <x-slot name="content">
                                 <div class="w-60">
-                                    <!-- Team Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
                                         {{ __('Manage Team') }}
                                     </div>
 
-                                    <!-- Team Settings -->
                                     <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                         {{ __('Team Settings') }}
                                     </x-dropdown-link>
@@ -53,7 +101,6 @@
                                         </x-dropdown-link>
                                     @endcan
 
-                                    <!-- Team Switcher -->
                                     @if (Auth::user()->allTeams()->count() > 1)
                                         <div class="border-t border-gray-200"></div>
 
@@ -71,7 +118,6 @@
                     </div>
                 @endif
 
-                <!-- Settings Dropdown -->
                 <div class="ms-3 relative">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -93,29 +139,30 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div>
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
+                                <span class="icon-[tabler--user] text-lg mr-2"></span>
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
+                                    <span class="icon-[tabler--鑰匙] text-lg mr-2"></span>
                                     {{ __('API Tokens') }}
                                 </x-dropdown-link>
                             @endif
 
                             <div class="border-t border-gray-200"></div>
 
-                            <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
 
                                 <x-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();">
+                                                 @click.prevent="$root.submit();">
+                                    <span class="icon-[tabler--logout] text-lg mr-2"></span>
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
@@ -124,7 +171,6 @@
                 </div>
             </div>
 
-            <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="size-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -136,15 +182,55 @@
         </div>
     </div>
 
-    <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <span class="icon-[tabler--layout-dashboard] text-lg mr-2"></span>
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                <span class="icon-[tabler--users] text-lg mr-2"></span>
+                {{ __('Usuários') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('departments.index') }}" :active="request()->routeIs('departments.index')">
+                <span class="icon-[tabler--building-warehouse] text-lg mr-2"></span>
+                {{ __('Departamentos') }}
+            </x-responsive-nav-link>
+
+            <div class="relative">
+                <x-responsive-nav-link x-data="{ open: false }" @click="open = !open" class="flex items-center justify-between w-full" :active="request()->routeIs(['vehicle-types.index', 'brands.index', 'vehicle-models.index', 'vehicles.index'])">
+                    <div class="flex items-center">
+                        <span class="icon-[tabler--truck] text-lg mr-2"></span>
+                        {{ __('Veículos') }}
+                    </div>
+                    <svg class="ms-2 -me-0.5 size-4" :class="{'rotate-180': open, '': !open}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </x-responsive-nav-link>
+
+                <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="ps-8 mt-2 space-y-1">
+                    <x-responsive-nav-link href="{{ route('vehicle-types.index') }}" :active="request()->routeIs('vehicle-types.index')">
+                        <span class="icon-[tabler--category-2] text-lg mr-2"></span>
+                        {{ __('Tipos de Veículos') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link href="{{ route('brands.index') }}" :active="request()->routeIs('brands.index')">
+                        <span class="icon-[tabler--trademark] text-lg mr-2"></span>
+                        {{ __('Marcas de Veículos') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link href="{{ route('vehicle-models.index') }}" :active="request()->routeIs('vehicle-models.index')">
+                        <span class="icon-[tabler--car-crane] text-lg mr-2"></span>
+                        {{ __('Modelos de Veículos') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link href="{{ route('vehicles.index') }}" :active="request()->routeIs('vehicles.index')">
+                        <span class="icon-[tabler--car] text-lg mr-2"></span>
+                        {{ __('Listar Veículos') }}
+                    </x-responsive-nav-link>
+                </div>
+            </div>
         </div>
 
-        <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -160,28 +246,30 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <!-- Account Management -->
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                    <span class="icon-[tabler--user] text-lg mr-2"></span>
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
+                        <span class="icon-[tabler--鑰匙] text-lg mr-2"></span>
                         {{ __('API Tokens') }}
                     </x-responsive-nav-link>
                 @endif
 
-                <!-- Authentication -->
+                <div class="border-t border-gray-200"></div>
+
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
 
                     <x-responsive-nav-link href="{{ route('logout') }}"
-                                   @click.prevent="$root.submit();">
+                                           @click.prevent="$root.submit();">
+                        <span class="icon-[tabler--logout] text-lg mr-2"></span>
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
 
-                <!-- Team Management -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="border-t border-gray-200"></div>
 
@@ -189,7 +277,6 @@
                         {{ __('Manage Team') }}
                     </div>
 
-                    <!-- Team Settings -->
                     <x-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
                         {{ __('Team Settings') }}
                     </x-responsive-nav-link>
@@ -200,7 +287,6 @@
                         </x-responsive-nav-link>
                     @endcan
 
-                    <!-- Team Switcher -->
                     @if (Auth::user()->allTeams()->count() > 1)
                         <div class="border-t border-gray-200"></div>
 

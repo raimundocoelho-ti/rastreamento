@@ -12,7 +12,7 @@ use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
 
-new #[Layout('components.layouts.app')] class extends Component
+new #[Layout('layouts.app')] class extends Component
 {
     use WithFileUploads;
 
@@ -148,7 +148,7 @@ new #[Layout('components.layouts.app')] class extends Component
 <div>
     <x-header-module :items="$headerItems"/>
     <form wire:submit="saveVehicle">
-        <div class="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
+        <div class="bg-white dark:bg-neutral-800 shadow-xs border border-neutral-200 dark:border-neutral-700 rounded-none p-6">
             @include('livewire.vehicle._form_vehicle', [
                 'vehicleTypes' => $vehicleTypes,
                 'allBrands' => $allBrands,
@@ -163,7 +163,7 @@ new #[Layout('components.layouts.app')] class extends Component
                     <button type="submit"
                             wire:loading.attr="disabled"
                             wire:target="saveVehicle, image"
-                            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-none shadow-sm disabled:opacity-75 inline-flex items-center">
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-none shadow-xs disabled:opacity-75 inline-flex items-center">
                         <span wire:loading wire:target="saveVehicle, image" class="icon-[tabler--loader-2] animate-spin w-5 h-5 mr-2"></span>
                         <span wire:loading wire:target="saveVehicle, image">A salvar...</span>
                         <span wire:loading.remove wire:target="saveVehicle, image"><span class="icon-[tabler--device-floppy] w-5 h-5 mr-2"></span>Salvar Veículo</span>
