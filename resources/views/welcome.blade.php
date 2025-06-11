@@ -93,18 +93,12 @@
             </div>
         </div>
 
-        <div class="p-6 lg:p-8 bg-white border-t border-gray-200 rounded-b-lg text-center"> {{-- Borda inferior arredondada --}}
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">
-                Pronto para Transformar sua Gestão de Frota?
-            </h2>
-            <p class="text-gray-700 text-lg mb-6">
-                Entre em contato conosco e descubra como a Sabio System pode impulsionar o seu negócio.
+        {{-- Novo Rodapé --}}
+        <footer class="p-6 lg:p-8 bg-white border-t border-gray-200 rounded-b-lg text-center">
+            <p class="text-gray-600 text-sm">
+                Desenvolvido com <br/>   <iconify-icon icon="mdi:heart" class="inline-block text-red-500" width="18" height="18"></iconify-icon> <br/> Raimundo C. Ferreira <br/>Sábio System Tecnologia LTDA
             </p>
-            <a href="#" class="inline-flex items-center px-8 py-3 bg-indigo-600 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                Fale Conosco Agora
-                <iconify-icon icon="mdi:arrow-right" class="ml-2" width="20" height="20"></iconify-icon>
-            </a>
-        </div>
+        </footer>
     </div>
 </main>
 
