@@ -3,13 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Route::get('/', function () {
-    return redirect()->route('login');
+    return view('welcome');
 });
+
+//Route::get('/', function () {
+//    return redirect()->route('login');
+//});
 
 Route::middleware([
     'auth:sanctum',
